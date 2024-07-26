@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - export REDSHIFT_URL="jdbc:redshift://$REDSHIFT_HOST:$REDSHIFT_PORT/$REDSHIFT_DB_NAME"
+      - export FLYWAY_URL=$REDSHIFT_URL
+      - export FLYWAY_USER=$REDSHIFT_USER
+      - export FLYWAY_PASSWORD=$REDSHIFT_PASSWORD
+  build:
+    commands:
+      - mvn clean test
+reports:
+  SurefireReports:
+    files:
+      - '**/*'
+    base-directory: 'target/surefire-reports'
