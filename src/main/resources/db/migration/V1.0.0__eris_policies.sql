@@ -1,6 +1,6 @@
 /*
 2022-02-10: KD
-- initial version
+- initial version 1.0
 */
 DROP TABLE IF EXISTS ${deployment_schema}.vmeris_policies	;
 CREATE TABLE ${deployment_schema}.vmeris_policies	
