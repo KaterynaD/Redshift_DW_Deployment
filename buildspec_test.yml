@@ -12,7 +12,7 @@ phases:
       - export FLYWAY_PASSWORD=$REDSHIFT_PASSWORD
   build:
     commands:
-      - mvn clean test
+      - mvn -f pom_test.xml clean test
 reports:
   SurefireReports:
     files:
